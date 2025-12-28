@@ -162,3 +162,68 @@ impl pallet_template::Config for Runtime {
 	type RuntimeEvent = RuntimeEvent;
 	type WeightInfo = pallet_template::weights::SubstrateWeight<Runtime>;
 }
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TOKENOMICS PALLET CONFIGURATION
+// ═══════════════════════════════════════════════════════════════════════════
+//
+// Implements the Sigmoid Emission Curve and Adaptive Scarcity Mechanism
+// from the Yellow Paper (Chapters 2 & 3).
+//
+// Key Parameters:
+// - Growth Rate (k): Controls curve steepness
+// - Inflection Point (t_0): When 50% supply is emitted
+// - Time Dilation Alpha: Sensitivity to network activity
+// ═══════════════════════════════════════════════════════════════════════════
+
+parameter_types! {
+	/// Treasury account for receiving portion of block rewards
+	pub TreasuryAccount: AccountId = AccountId::from([0u8; 32]);
+	
+	/// Treasury cut: 10% of block rewards go to treasury
+	pub const TreasuryCut: Perbill = Perbill::from_percent(10);
+	
+	/// Blocks per era for ASM updates (1 day at 6s blocks = 14400 blocks)
+	pub const BlocksPerEra: BlockNumber = 14_400;
+	
+	/// Growth rate constant (k) for sigmoid curve
+	/// k = 0.0000005 represented as k × 10^12 = 500_000_000
+	/// This gives ~21 year emission schedule
+	pub const GrowthRateK: u128 = 500_000_000;
+	
+	/// Inflection point (t_0) - block number when 50% supply is emitted
+	/// ~10.5 years at 6s blocks = 55,296,000 blocks
+	pub const InflectionPoint: BlockNumber = 55_296_000;
+	
+	/// Time dilation sensitivity (α) = 0.05 as α × 10^12 = 50_000_000_000
+	pub const TimeDilationAlpha: u128 = 50_000_000_000;
+	
+	/// Baseline network activity quotient
+	pub const BaselineActivity: u128 = 1_000_000_000_000; // 1.0 × 10^12
+}
+
+/// Handler for newly minted tokens - distributes to appropriate places
+pub struct TokenMintedHandler;
+impl frame_support::traits::OnUnbalanced<
+	pallet_balances::NegativeImbalance<Runtime>
+> for TokenMintedHandler {
+	fn on_nonzero_unbalanced(amount: pallet_balances::NegativeImbalance<Runtime>) {
+		// For now, drop the imbalance (tokens are effectively destroyed)
+		// In production, this would distribute to validators
+		drop(amount);
+	}
+}
+
+impl pallet_tokenomics::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type Currency = Balances;
+	type OnTokensMinted = TokenMintedHandler;
+	type TreasuryAccount = TreasuryAccount;
+	type TreasuryCut = TreasuryCut;
+	type BlocksPerEra = BlocksPerEra;
+	type GrowthRateK = GrowthRateK;
+	type InflectionPoint = InflectionPoint;
+	type TimeDilationAlpha = TimeDilationAlpha;
+	type BaselineActivity = BaselineActivity;
+	type WeightInfo = pallet_tokenomics::weights::SubstrateWeight<Runtime>;
+}

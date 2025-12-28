@@ -58,6 +58,9 @@ fn sanctuary_genesis(
         0
     };
 
+    // Calculate total genesis supply (sum of all endowments)
+    let total_genesis: u128 = num_accounts.saturating_mul(per_account);
+
     build_struct_json_patch!(RuntimeGenesisConfig {
         balances: BalancesConfig {
             balances: endowed_accounts
@@ -73,6 +76,11 @@ fn sanctuary_genesis(
             authorities: initial_authorities.iter().map(|x| (x.1.clone(), 1)).collect::<Vec<_>>(),
         },
         sudo: SudoConfig { key: Some(root) },
+        // Initialize tokenomics with genesis supply tracking
+        tokenomics: pallet_tokenomics::GenesisConfig {
+            initial_supply: total_genesis,
+            initial_effective_height: 0,
+        },
     })
 }
 

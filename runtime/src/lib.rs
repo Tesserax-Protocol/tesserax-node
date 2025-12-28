@@ -337,4 +337,8 @@ mod runtime {
 	// Include the custom logic from the pallet-template in the runtime.
 	#[runtime::pallet_index(7)]
 	pub type Template = pallet_template;
+
+	// Sanctuary Protocol Tokenomics - Sigmoid Emission & Adaptive Scarcity
+	#[runtime::pallet_index(8)]
+	pub type Tokenomics = pallet_tokenomics;
 }
