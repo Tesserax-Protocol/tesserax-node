@@ -1,4 +1,4 @@
-# Sanctuary Protocol
+# Tesserax Protocol
 
 <div align="center">
 
@@ -11,7 +11,7 @@
 
 ## Overview
 
-Sanctuary Protocol is a next-generation blockchain built on Substrate, featuring:
+Tesserax Protocol is a next-generation blockchain built on Substrate, featuring:
 
 - **🔢 Adaptive Scarcity Mechanism (ASM)** - Supply controlled by universal constants (π, e, φ)
 - **🔐 Quantum-Resistant Cryptography** - Hybrid signature scheme (ECDSA + ML-DSA/Dilithium)
@@ -19,11 +19,11 @@ Sanctuary Protocol is a next-generation blockchain built on Substrate, featuring
 - **📈 Sigmoid Emission Curve** - Natural growth pattern instead of harsh halving
 - **🔗 Full EVM Compatibility** - Deploy Solidity contracts seamlessly
 
-## The Sanctuary Constant
+## The Tesserax Constant
 
-The maximum supply of $SANC is derived from universal mathematical constants:
+The maximum supply of $TSRX is derived from universal mathematical constants:
 
-$$S_{max} = \lfloor \pi \times e \times \phi \times 10^6 \rfloor = 13,817,422 \text{ SANC}$$
+$$S_{max} = \lfloor \pi \times e \times \phi \times 10^6 \rfloor = 13,817,422 \text{ TSRX}$$
 
 Where:
 - **π** (Pi) ≈ 3.14159... - Represents cycles
@@ -40,36 +40,36 @@ Where:
 ### Build
 
 ```bash
-git clone https://github.com/sanctuary-protocol/sanctuary-node.git
-cd sanctuary-node
+git clone https://github.com/tesserax-protocol/tesserax-node.git
+cd tesserax-node
 cargo build --release
 ```
 
 ### Run Development Node
 
 ```bash
-./target/release/sanctuary-node --dev
+./target/release/tesserax-node --dev
 ```
 
 ### Run with Detailed Logging
 
 ```bash
-RUST_BACKTRACE=1 ./target/release/sanctuary-node -ldebug --dev
+RUST_BACKTRACE=1 ./target/release/tesserax-node -ldebug --dev
 ```
 
 ### Purge Development Chain
 
 ```bash
-./target/release/sanctuary-node purge-chain --dev
+./target/release/tesserax-node purge-chain --dev
 ```
 
 ## Architecture
 
 ```
-sanctuary-node/
+tesserax-node/
 ├── node/           # Node client implementation
 ├── pallets/        # Custom FRAME pallets
-│   ├── template/   # Example pallet (to be replaced with Sanctuary pallets)
+│   ├── template/   # Example pallet (to be replaced with Tesserax pallets)
 │   └── ...
 ├── runtime/        # Runtime configuration
 └── yellow-paper.md # Technical specification

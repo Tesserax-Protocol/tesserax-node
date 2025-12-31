@@ -1,10 +1,10 @@
 [workspace.package]
 license = "MIT-0"
 authors = ["Minerva & Gemini (The Architect)"]
-homepage = "https://sanctuary.network"
-repository = "https://github.com/sanctuary-protocol/sanctuary-node.git"
+homepage = "https://tesserax.network"
+repository = "https://github.com/tesserax-protocol/tesserax-node.git"
 edition = "2021"
-description = "Sanctuary Protocol - Adaptive Scarcity & Quantum-Resistant Blockchain"
+description = "Tesserax Protocol - Adaptive Scarcity & Quantum-Resistant Blockchain"
 
 [workspace]
 members = [
@@ -19,7 +19,7 @@ resolver = "2"
 # ═══════════════════════════════════════════════════════════════════════════
 # LOCAL CRATES
 # ═══════════════════════════════════════════════════════════════════════════
-sanctuary-runtime = { path = "./runtime", default-features = false }
+tesserax-runtime = { path = "./runtime", default-features = false }
 pallet-template = { path = "./pallets/template", default-features = false }
 pallet-emission = { path = "./pallets/emission", default-features = false }
 

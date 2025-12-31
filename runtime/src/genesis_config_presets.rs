@@ -1,20 +1,20 @@
-// This file is part of Sanctuary Protocol.
+// This file is part of Tesserax Protocol.
 // 
 // Copyright (C) 2025 Minerva & Gemini (The Architect)
 // SPDX-License-Identifier: MIT-0
 
-//! Genesis configuration presets for Sanctuary Protocol.
+//! Genesis configuration presets for Tesserax Protocol.
 //! 
 //! This module defines the initial state of the blockchain at genesis.
 //! 
 //! Key principles from Yellow Paper:
-//! - Total supply approaches S_max = 13,817,422 SANC asymptotically
+//! - Total supply approaches S_max = 13,817,422 TSRX asymptotically
 //! - Genesis distributes only a portion (10%) for initial liquidity
 //! - Remaining supply is emitted over time via Sigmoid curve
 
 use crate::{
     AccountId, BalancesConfig, RuntimeGenesisConfig, SudoConfig,
-    sanctuary_constants::DEV_ENDOWMENT,
+    tesserax_constants::DEV_ENDOWMENT,
 };
 use alloc::{vec, vec::Vec};
 use frame_support::build_struct_json_patch;
@@ -28,10 +28,10 @@ use sp_keyring::Sr25519Keyring;
 /// GENESIS CONFIGURATION
 /// ═══════════════════════════════════════════════════════════════════════════
 /// 
-/// The genesis block is the foundation of Sanctuary Protocol.
+/// The genesis block is the foundation of Tesserax Protocol.
 /// 
 /// Distribution Strategy (Development/Testnet):
-/// - Total Genesis Supply: ~1,381,742 SANC (10% of max supply)
+/// - Total Genesis Supply: ~1,381,742 TSRX (10% of max supply)
 /// - Distributed equally among development accounts
 /// 
 /// For Mainnet:
@@ -45,7 +45,7 @@ use sp_keyring::Sr25519Keyring;
 /// * `initial_authorities` - BABE (Aura) and GRANDPA validator keypairs
 /// * `endowed_accounts` - Accounts that receive initial token allocation
 /// * `root` - The sudo (admin) account
-fn sanctuary_genesis(
+fn tesserax_genesis(
     initial_authorities: Vec<(AuraId, GrandpaId)>,
     endowed_accounts: Vec<AccountId>,
     root: AccountId,
@@ -84,16 +84,16 @@ fn sanctuary_genesis(
 /// Alice is both the validator and the sudo account.
 /// 
 /// Endowed accounts:
-/// - Alice: ~345,435 SANC (Developer / Validator)
-/// - Bob: ~345,435 SANC (Tester)
-/// - AliceStash: ~345,435 SANC (Staking reserve)
-/// - BobStash: ~345,435 SANC (Staking reserve)
+/// - Alice: ~345,435 TSRX (Developer / Validator)
+/// - Bob: ~345,435 TSRX (Tester)
+/// - AliceStash: ~345,435 TSRX (Staking reserve)
+/// - BobStash: ~345,435 TSRX (Staking reserve)
 /// 
-/// Total: ~1,381,742 SANC (10% of max supply: 13,817,422)
+/// Total: ~1,381,742 TSRX (10% of max supply: 13,817,422)
 /// ═══════════════════════════════════════════════════════════════════════════
 
 pub fn development_config_genesis() -> Value {
-    sanctuary_genesis(
+    tesserax_genesis(
         // Single validator: Alice
         vec![(
             sp_keyring::Sr25519Keyring::Alice.public().into(),
@@ -122,7 +122,7 @@ pub fn development_config_genesis() -> Value {
 /// ═══════════════════════════════════════════════════════════════════════════
 
 pub fn local_config_genesis() -> Value {
-    sanctuary_genesis(
+    tesserax_genesis(
         // Two validators: Alice and Bob
         vec![
             (
@@ -171,8 +171,8 @@ mod tests {
     use super::*;
 
     #[test]
-    fn sanctuary_constants_are_correct() {
-        use crate::sanctuary_constants::*;
+    fn tesserax_constants_are_correct() {
+        use crate::tesserax_constants::*;
 
         // Verify π × e × φ ≈ 13.817422188
         // (3.141592653 × 2.718281828 × 1.618033988) / 10^18 ≈ 13.817422188
@@ -187,7 +187,7 @@ mod tests {
 
     #[test]
     fn genesis_supply_is_ten_percent_of_max() {
-        use crate::sanctuary_constants::*;
+        use crate::tesserax_constants::*;
         
         // Genesis supply should be ~10% of max
         let expected_genesis = MAX_SUPPLY / 10;

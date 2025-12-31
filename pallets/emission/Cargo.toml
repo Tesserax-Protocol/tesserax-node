@@ -1,6 +1,6 @@
 [package]
 name = "pallet-emission"
-description = "Sanctuary Protocol - Pre-computed Sigmoid Emission (Stateless)"
+description = "Tesserax Protocol - Pre-computed Sigmoid Emission (Stateless)"
 version = "0.1.0"
 license = "MIT-0"
 authors.workspace = true

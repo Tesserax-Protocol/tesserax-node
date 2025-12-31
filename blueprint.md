@@ -1,10 +1,10 @@
-# **PROJECT BLUEPRINT: SANCTUARY NODE (v2.0)**
+# **PROJECT BLUEPRINT: TESSERAX NODE (v2.0)**
 
 ## **1. Arsitektur Tingkat Tinggi**
 
 Proyek ini akan dibangun menggunakan **Substrate Framework** (Polkadot SDK) versi stabil terbaru.
 
-* **Node Name:** `sanctuary-node`
+* **Node Name:** `tesserax-node`
 * **Consensus:** BABE (Block Production) + GRANDPA (Finality).
 * **Sybil Resistance:** NPoS (Nominated Proof of Stake).
 * **Execution:** EVM (Frontier).
@@ -18,7 +18,7 @@ Proyek ini akan dibangun menggunakan **Substrate Framework** (Polkadot SDK) vers
 Struktur repositori Rust akan mengikuti standar *Substrate Node Template* yang telah dibersihkan (*stripped down*).
 
 ```text
-sanctuary-core/
+tesserax-core/
 ├── node/                   # Logika Node (RPC, CLI, Service, Chain Spec)
 │   └── src/
 │       ├── chain_spec.rs   # Genesis Config (Hardcoded Constants ada di sini)
@@ -47,7 +47,7 @@ Kita membagi modul menjadi dua kategori: **Standard (Off-the-shelf)** dan **Cust
 Jangan buat ulang roda. Gunakan modul yang sudah diaudit:
 
 1. `frame_system`: Low-level system types.
-2. `pallet_balances`: Token logic ($SANC).
+2. `pallet_balances`: Token logic ($TSRX).
 3. `pallet_staking`: Logika NPoS (Validator & Nominator).
 4. `pallet_timestamp`: Waktu blok.
 5. `pallet_transaction_payment`: Fee logic (dikonfigurasi dengan EIP-1559 multiplier).
@@ -80,7 +80,7 @@ Fitur premium untuk keamanan jangka panjang.
 * **Calls (Extrinsics):**
 1. `create_vault(pqc_key)`:
 * Mengubah status akun menjadi "Vault".
-* **Biaya:** 10 $SANC (Sangat mahal untuk mencegah spam).
+* **Biaya:** 10 $TSRX (Sangat mahal untuk mencegah spam).
 
 
 2. `vault_transfer(signature, to, amount)`:
@@ -124,8 +124,8 @@ MIDPOINT = TOTAL_BLOCKS / 2  # Titik infleksi di tahun ke-10
 # Diset agar S(0) mendekati 0 dan S(end) mendekati S_MAX
 k = 10 / MIDPOINT 
 
-print(f"Generating Emission Table for Sanctuary Protocol v2.0")
-print(f"Max Supply: {S_MAX / 10**18:,.2f} SANC")
+print(f"Generating Emission Table for Tesserax Protocol v2.0")
+print(f"Max Supply: {S_MAX / 10**18:,.2f} TSRX")
 
 # Kita tidak menyimpan setiap blok (terlalu besar), kita simpan per ERA (24 jam)
 # 1 Era = 14,400 blok (asumsi 6s block time)
@@ -170,7 +170,7 @@ print("];")
 * Inisialisasi repo Substrate Node Template.
 * Pembersihan pallet bawaan (Aura diganti BABE jika perlu, atau tetap Aura untuk MVP).
 * Integrasi `pallet-emission` dengan tabel hasil Python script.
-* **Goal:** Chain berjalan, blok diproduksi, reward SANC tercetak sesuai kurva sigmoid.
+* **Goal:** Chain berjalan, blok diproduksi, reward TSRX tercetak sesuai kurva sigmoid.
 
 ### **Phase 2: EVM Layer (Minggu 3-4)**
 

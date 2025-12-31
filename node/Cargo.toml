@@ -1,6 +1,6 @@
 [package]
-name = "sanctuary-node"
-description = "Sanctuary Protocol Node - Adaptive Scarcity & Quantum-Resistant Blockchain"
+name = "tesserax-node"
+description = "Tesserax Protocol Node - Adaptive Scarcity & Quantum-Resistant Blockchain"
 version = "0.1.0"
 license = "MIT-0"
 authors.workspace = true
@@ -54,7 +54,7 @@ sc-transaction-pool-api.default-features = true
 sc-transaction-pool-api.workspace = true
 sc-transaction-pool.default-features = true
 sc-transaction-pool.workspace = true
-sanctuary-runtime.workspace = true
+tesserax-runtime.workspace = true
 sp-api.default-features = true
 sp-api.workspace = true
 sp-block-builder.default-features = true
@@ -99,14 +99,14 @@ substrate-build-script-utils.workspace = true
 
 [features]
 default = ["std"]
-std = ["sanctuary-runtime/std"]
+std = ["tesserax-runtime/std"]
 # Dependencies that are only required if runtime benchmarking should be build.
 runtime-benchmarks = [
 	"frame-benchmarking-cli/runtime-benchmarks",
 	"frame-system/runtime-benchmarks",
 	"pallet-transaction-payment/runtime-benchmarks",
 	"sc-service/runtime-benchmarks",
-	"sanctuary-runtime/runtime-benchmarks",
+	"tesserax-runtime/runtime-benchmarks",
 	"sp-runtime/runtime-benchmarks",
 ]
 # Enable features that allow the runtime to be tried and debugged. Name might be subject to change
@@ -114,6 +114,6 @@ runtime-benchmarks = [
 try-runtime = [
 	"frame-system/try-runtime",
 	"pallet-transaction-payment/try-runtime",
-	"sanctuary-runtime/try-runtime",
+	"tesserax-runtime/try-runtime",
 	"sp-runtime/try-runtime",
 ]

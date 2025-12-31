@@ -9,15 +9,15 @@ mod benchmarks;
 pub mod configs;
 
 // ═══════════════════════════════════════════════════════════════════════════
-// THE SANCTUARY CONSTANT - Economic DNA of the Protocol
+// THE TESSERAX CONSTANT - Economic DNA of the Protocol
 // ═══════════════════════════════════════════════════════════════════════════
 // 
 // "Mathematics-as-Money" - Supply derived from universal constants, not human decisions.
 //
-// Reference: Yellow Paper Chapter 2 - The Sanctuary Constant (Economic Primitives)
+// Reference: Yellow Paper Chapter 2 - The Tesserax Constant (Economic Primitives)
 // ═══════════════════════════════════════════════════════════════════════════
 
-/// Universal mathematical constants that govern Sanctuary's economic model.
+/// Universal mathematical constants that govern Tesserax's economic model.
 /// 
 /// These constants are immutable and represent the fundamental properties of nature:
 /// - π (Pi): The ratio of a circle's circumference to its diameter - represents CYCLES
@@ -26,7 +26,7 @@ pub mod configs;
 ///
 /// All values are stored as fixed-point integers with 9 decimal precision (× 10^9)
 /// to ensure deterministic computation on-chain without floating-point arithmetic.
-pub mod sanctuary_constants {
+pub mod tesserax_constants {
     use super::Balance;
 
     /// Precision factor for fixed-point arithmetic (10^9)
@@ -44,19 +44,19 @@ pub mod sanctuary_constants {
     /// Represents perfect proportion and natural harmony
     pub const PHI: u128 = 1_618_033_988;
 
-    /// The Sanctuary Constant: π × e × φ ≈ 13.817422188
+    /// The Tesserax Constant: π × e × φ ≈ 13.817422188
     /// This represents the "Volume Ideal" - a theoretical block with sides π, e, and φ
-    pub const SANCTUARY_CONSTANT: u128 = 13_817_422_188;
+    pub const TESSERAX_CONSTANT: u128 = 13_817_422_188;
 
-    /// Maximum Supply of $SANC tokens (in whole units)
-    /// S_max = floor(π × e × φ × 10^6) = 13,817,422 SANC
+    /// Maximum Supply of $TSRX tokens (in whole units)
+    /// S_max = floor(π × e × φ × 10^6) = 13,817,422 TSRX
     /// 
     /// This is the asymptotic limit that supply approaches as time → ∞
     /// Unlike Bitcoin's hard cap, this is approached via sigmoid curve, never abruptly reached.
     pub const MAX_SUPPLY_UNITS: u128 = 13_817_422;
 
     /// Maximum Supply in smallest indivisible units (planck)
-    /// 13,817,422 SANC × 10^18 decimals = 13,817,422 × 10^18 planck
+    /// 13,817,422 TSRX × 10^18 decimals = 13,817,422 × 10^18 planck
     /// 
     /// We use 18 decimals for EVM compatibility (like ETH's wei)
     pub const MAX_SUPPLY: Balance = 13_817_422_000_000_000_000_000_000;
@@ -65,10 +65,10 @@ pub mod sanctuary_constants {
     pub const TOKEN_DECIMALS: u8 = 18;
 
     /// Token symbol
-    pub const TOKEN_SYMBOL: &str = "SANC";
+    pub const TOKEN_SYMBOL: &str = "TSRX";
 
     /// Token name
-    pub const TOKEN_NAME: &str = "Sanctuary";
+    pub const TOKEN_NAME: &str = "Tesserax";
 
     // ═══════════════════════════════════════════════════════════════════════
     // GENESIS DISTRIBUTION
@@ -83,7 +83,7 @@ pub mod sanctuary_constants {
     pub const GENESIS_SUPPLY: Balance = 1_381_742_200_000_000_000_000_000;
 
     /// Endowment per development account
-    /// ~345,435.55 SANC each for 4 dev accounts (Alice, Bob, AliceStash, BobStash)
+    /// ~345,435.55 TSRX each for 4 dev accounts (Alice, Bob, AliceStash, BobStash)
     pub const DEV_ENDOWMENT: Balance = 345_435_550_000_000_000_000_000;
 
     // ═══════════════════════════════════════════════════════════════════════
@@ -158,8 +158,8 @@ impl_opaque_keys! {
 // https://docs.substrate.io/main-docs/build/upgrade#runtime-versioning
 #[sp_version::runtime_version]
 pub const VERSION: RuntimeVersion = RuntimeVersion {
-	spec_name: alloc::borrow::Cow::Borrowed("sanctuary-runtime"),
-	impl_name: alloc::borrow::Cow::Borrowed("sanctuary-runtime"),
+	spec_name: alloc::borrow::Cow::Borrowed("tesserax-runtime"),
+	impl_name: alloc::borrow::Cow::Borrowed("tesserax-runtime"),
 	authoring_version: 1,
 	// The version of the runtime specification. A full node will not attempt to use its native
 	//   runtime in substitute for the on-chain Wasm runtime unless all of `spec_name`,
@@ -198,25 +198,25 @@ pub const BLOCK_HASH_COUNT: BlockNumber = 2400;
 // ═══════════════════════════════════════════════════════════════════════════
 // TOKEN UNITS - 18 decimals for EVM compatibility
 // ═══════════════════════════════════════════════════════════════════════════
-// 1 SANC = 10^18 planck (smallest unit)
+// 1 TSRX = 10^18 planck (smallest unit)
 // This matches Ethereum's wei/ether ratio for seamless EVM integration
 
-/// One SANC token = 10^18 planck (smallest indivisible unit)
-pub const SANC: Balance = 1_000_000_000_000_000_000; // 10^18
-pub const MILLI_SANC: Balance = 1_000_000_000_000_000; // 10^15
-pub const MICRO_SANC: Balance = 1_000_000_000_000; // 10^12
+/// One TSRX token = 10^18 planck (smallest indivisible unit)
+pub const TSRX: Balance = 1_000_000_000_000_000_000; // 10^18
+pub const MILLI_TSRX: Balance = 1_000_000_000_000_000; // 10^15
+pub const MICRO_TSRX: Balance = 1_000_000_000_000; // 10^12
 
 // Legacy aliases for compatibility
-pub const UNIT: Balance = SANC;
-pub const MILLI_UNIT: Balance = MILLI_SANC;
-pub const MICRO_UNIT: Balance = MICRO_SANC;
+pub const UNIT: Balance = TSRX;
+pub const MILLI_UNIT: Balance = MILLI_TSRX;
+pub const MICRO_UNIT: Balance = MICRO_TSRX;
 
 /// Existential deposit - minimum balance to keep account alive
-/// Set to 1 SANC to prevent dust accounts and encourage meaningful participation
-pub const EXISTENTIAL_DEPOSIT: Balance = SANC;
+/// Set to 1 TSRX to prevent dust accounts and encourage meaningful participation
+pub const EXISTENTIAL_DEPOSIT: Balance = TSRX;
 
-// Re-export sanctuary constants for external use
-pub use sanctuary_constants::*;
+// Re-export tesserax constants for external use
+pub use tesserax_constants::*;
 
 /// The version information used to identify this runtime when compiled natively.
 #[cfg(feature = "std")]
@@ -342,7 +342,7 @@ mod runtime {
 	#[runtime::pallet_index(8)]
 	pub type Authorship = pallet_authorship;
 
-	// Sanctuary Protocol Emission - Pre-computed Sigmoid Curve (v2.0)
+	// Tesserax Protocol Emission - Pre-computed Sigmoid Curve (v2.0)
 	#[runtime::pallet_index(9)]
 	pub type Emission = pallet_emission;
 

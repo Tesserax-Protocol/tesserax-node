@@ -1,4 +1,4 @@
-//! # Sanctuary Emission Pallet (v2.0)
+//! # Tesserax Emission Pallet (v2.0)
 //!
 //! A **stateless** pallet that distributes block rewards according to a
 //! pre-computed sigmoid emission schedule.
@@ -24,10 +24,10 @@
 //!
 //! The sigmoid function produces a bell-curve reward distribution:
 //! - Years 0-5: Rewards increase (early adopter incentive)
-//! - Year 10: Peak rewards (~0.66 SANC/block)
+//! - Year 10: Peak rewards (~0.66 TSRX/block)
 //! - Years 15-20: Rewards decrease (scarcity phase)
 //!
-//! Total supply asymptotically approaches 13,817,580 SANC (π × e × φ × 10^6)
+//! Total supply asymptotically approaches 13,817,580 TSRX (π × e × φ × 10^6)
 
 #![cfg_attr(not(feature = "std"), no_std)]
 

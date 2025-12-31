@@ -7,12 +7,12 @@ use crate::{
 use frame_benchmarking_cli::{BenchmarkCmd, ExtrinsicFactory, SUBSTRATE_REFERENCE_HARDWARE};
 use sc_cli::SubstrateCli;
 use sc_service::PartialComponents;
-use sanctuary_runtime::{Block, EXISTENTIAL_DEPOSIT};
+use tesserax_runtime::{Block, EXISTENTIAL_DEPOSIT};
 use sp_keyring::Sr25519Keyring;
 
 impl SubstrateCli for Cli {
 	fn impl_name() -> String {
-		"Sanctuary Node".into()
+		"Tesserax Node".into()
 	}
 
 	fn impl_version() -> String {
@@ -28,7 +28,7 @@ impl SubstrateCli for Cli {
 	}
 
 	fn support_url() -> String {
-		"https://sanctuary.network/support".into()
+		"https://tesserax.network/support".into()
 	}
 
 	fn copyright_start_year() -> i32 {
@@ -181,8 +181,8 @@ pub fn run() -> sc_cli::Result<()> {
 				match config.network.network_backend {
 					sc_network::config::NetworkBackendType::Libp2p => service::new_full::<
 						sc_network::NetworkWorker<
-							sanctuary_runtime::opaque::Block,
-							<sanctuary_runtime::opaque::Block as sp_runtime::traits::Block>::Hash,
+							tesserax_runtime::opaque::Block,
+							<tesserax_runtime::opaque::Block as sp_runtime::traits::Block>::Hash,
 						>,
 					>(config)
 					.map_err(sc_cli::Error::Service),

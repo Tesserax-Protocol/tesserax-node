@@ -213,7 +213,7 @@ impl pallet_emission::Config for Runtime {
 // EVM CONFIGURATION (Frontier Integration)
 // ═══════════════════════════════════════════════════════════════════════════
 //
-// Chain ID: 7777 (Sanctuary Network)
+// Chain ID: 7777 (Tesserax Network)
 // Features: Full EVM compatibility, EIP-1559 base fee
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -225,7 +225,7 @@ use sp_core::{H160, U256};
 use core::marker::PhantomData;
 use sp_runtime::Permill;
 
-/// Sanctuary Chain ID: 7777
+/// Tesserax Chain ID: 7777
 pub const CHAIN_ID: u64 = 7777;
 
 /// Block gas limit
@@ -316,9 +316,9 @@ where
 }
 
 /// Standard Ethereum precompiles
-pub struct SanctuaryPrecompiles<R>(PhantomData<R>);
+pub struct TesseraxPrecompiles<R>(PhantomData<R>);
 
-impl<R> SanctuaryPrecompiles<R>
+impl<R> TesseraxPrecompiles<R>
 where
 	R: pallet_evm::Config,
 {
@@ -337,7 +337,7 @@ where
 	}
 }
 
-impl<R> Default for SanctuaryPrecompiles<R>
+impl<R> Default for TesseraxPrecompiles<R>
 where
 	R: pallet_evm::Config,
 {
@@ -351,7 +351,7 @@ fn hash(a: u64) -> H160 {
 	H160::from_low_u64_be(a)
 }
 
-impl<R> PrecompileSet for SanctuaryPrecompiles<R>
+impl<R> PrecompileSet for TesseraxPrecompiles<R>
 where
 	R: pallet_evm::Config,
 {
@@ -380,7 +380,7 @@ where
 }
 
 parameter_types! {
-	pub PrecompilesValue: SanctuaryPrecompiles<Runtime> = SanctuaryPrecompiles::<Runtime>::new();
+	pub PrecompilesValue: TesseraxPrecompiles<Runtime> = TesseraxPrecompiles::<Runtime>::new();
 }
 
 /// Configure EVM Chain ID
@@ -403,7 +403,7 @@ impl pallet_evm::Config for Runtime {
 	type WithdrawOrigin = EnsureAddressTruncated;
 	type AddressMapping = HashedAddressMapping;
 	type Currency = Balances;
-	type PrecompilesType = SanctuaryPrecompiles<Self>;
+	type PrecompilesType = TesseraxPrecompiles<Self>;
 	type PrecompilesValue = PrecompilesValue;
 	type ChainId = ChainId;
 	type BlockGasLimit = BlockGasLimit;
