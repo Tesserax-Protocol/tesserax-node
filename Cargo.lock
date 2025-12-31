@@ -11608,6 +11608,8 @@ version = "0.1.0"
 dependencies = [
  "clap",
  "cumulus-primitives-proof-size-hostfunction",
+ "fp-evm",
+ "fp-rpc",
  "frame-benchmarking-cli",
  "frame-metadata-hash-extension",
  "frame-system",

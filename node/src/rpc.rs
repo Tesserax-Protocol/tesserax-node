@@ -2,6 +2,8 @@
 //! Substrate provides the `sc-rpc` crate, which defines the core RPC layer
 //! used by Substrate nodes. This file extends those RPC definitions with
 //! capabilities that are specific to this project's runtime configuration.
+//!
+//! Includes basic Ethereum-compatible JSON-RPC methods.
 
 #![warn(missing_docs)]
 
@@ -13,6 +15,9 @@ use tesserax_runtime::{opaque::Block, AccountId, Balance, Nonce};
 use sp_api::ProvideRuntimeApi;
 use sp_block_builder::BlockBuilder;
 use sp_blockchain::{Error as BlockChainError, HeaderBackend, HeaderMetadata};
+
+/// Tesserax Chain ID: 7777
+pub const CHAIN_ID: u64 = 7777;
 
 /// Full client dependencies.
 pub struct FullDeps<C, P> {
@@ -41,8 +46,19 @@ where
 	let mut module = RpcModule::new(());
 	let FullDeps { client, pool } = deps;
 
+	// Substrate RPC
 	module.merge(System::new(client.clone(), pool).into_rpc())?;
 	module.merge(TransactionPayment::new(client).into_rpc())?;
+
+	// Add basic eth_chainId for Metamask detection
+	// Full eth_* RPC requires Frontier backend setup (TODO)
+	module.register_method("eth_chainId", |_, _, _| {
+		Ok::<String, jsonrpsee::types::ErrorObjectOwned>(format!("0x{:x}", CHAIN_ID))
+	})?;
+
+	module.register_method("net_version", |_, _, _| {
+		Ok::<String, jsonrpsee::types::ErrorObjectOwned>(CHAIN_ID.to_string())
+	})?;
 
 	Ok(module)
 }
