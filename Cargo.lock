@@ -2858,6 +2858,141 @@ dependencies = [
 ]
 
 [[package]]
+name = "fc-api"
+version = "1.0.0-dev"
+dependencies = [
+ "async-trait",
+ "fp-storage",
+ "parity-scale-codec",
+ "sp-core",
+ "sp-runtime",
+]
+
+[[package]]
+name = "fc-db"
+version = "2.0.0-dev"
+dependencies = [
+ "async-trait",
+ "fc-api",
+ "fp-storage",
+ "kvdb-rocksdb",
+ "log",
+ "parity-db",
+ "parity-scale-codec",
+ "parking_lot 0.12.5",
+ "sc-client-db",
+ "smallvec",
+ "sp-blockchain",
+ "sp-core",
+ "sp-database",
+ "sp-runtime",
+]
+
+[[package]]
+name = "fc-mapping-sync"
+version = "2.0.0-dev"
+dependencies = [
+ "fc-db",
+ "fc-storage",
+ "fp-consensus",
+ "fp-rpc",
+ "futures",
+ "futures-timer",
+ "log",
+ "parking_lot 0.12.5",
+ "sc-client-api",
+ "sc-utils 19.0.0 (git+https://github.com/paritytech/polkadot-sdk?branch=stable2506)",
+ "sp-api",
+ "sp-blockchain",
+ "sp-consensus",
+ "sp-runtime",
+]
+
+[[package]]
+name = "fc-rpc"
+version = "2.0.0-dev"
+dependencies = [
+ "ethereum",
+ "ethereum-types",
+ "evm",
+ "fc-api",
+ "fc-mapping-sync",
+ "fc-rpc-core",
+ "fc-storage",
+ "fp-evm",
+ "fp-rpc",
+ "fp-storage",
+ "futures",
+ "hex",
+ "jsonrpsee",
+ "libsecp256k1",
+ "log",
+ "pallet-evm",
+ "parity-scale-codec",
+ "prometheus",
+ "rand 0.9.2",
+ "rlp",
+ "sc-client-api",
+ "sc-consensus-aura",
+ "sc-network",
+ "sc-network-sync",
+ "sc-rpc",
+ "sc-service",
+ "sc-transaction-pool-api",
+ "sc-utils 19.0.0 (git+https://github.com/paritytech/polkadot-sdk?branch=stable2506)",
+ "schnellru",
+ "serde",
+ "sp-api",
+ "sp-block-builder",
+ "sp-blockchain",
+ "sp-consensus",
+ "sp-consensus-aura",
+ "sp-core",
+ "sp-externalities",
+ "sp-inherents",
+ "sp-io",
+ "sp-runtime",
+ "sp-state-machine",
+ "sp-storage",
+ "sp-timestamp",
+ "sp-trie",
+ "substrate-prometheus-endpoint",
+ "thiserror 2.0.17",
+ "tokio",
+]
+
+[[package]]
+name = "fc-rpc-core"
+version = "1.1.0-dev"
+dependencies = [
+ "ethereum",
+ "ethereum-types",
+ "jsonrpsee",
+ "rlp",
+ "rustc-hex",
+ "serde",
+ "serde_json",
+ "sp-core",
+ "sp-crypto-hashing 0.1.0",
+]
+
+[[package]]
+name = "fc-storage"
+version = "1.0.0-dev"
+dependencies = [
+ "ethereum",
+ "ethereum-types",
+ "fp-rpc",
+ "fp-storage",
+ "parity-scale-codec",
+ "sc-client-api",
+ "sp-api",
+ "sp-io",
+ "sp-runtime",
+ "sp-storage",
+]
+
+[[package]]
 name = "fdlimit"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8661,7 +8796,7 @@ dependencies = [
  "sc-telemetry",
  "sc-tracing",
  "sc-transaction-pool",
- "sc-utils",
+ "sc-utils 19.0.0",
  "serde",
  "serde_json",
  "sp-blockchain",
@@ -8686,7 +8821,7 @@ dependencies = [
  "parking_lot 0.12.5",
  "sc-executor",
  "sc-transaction-pool-api",
- "sc-utils",
+ "sc-utils 19.0.0",
  "sp-api",
  "sp-blockchain",
  "sp-consensus",
@@ -8738,7 +8873,7 @@ dependencies = [
  "parking_lot 0.12.5",
  "sc-client-api",
  "sc-network-types",
- "sc-utils",
+ "sc-utils 19.0.0",
  "serde",
  "sp-blockchain",
  "sp-consensus",
@@ -8851,7 +8986,7 @@ dependencies = [
  "sc-network-types",
  "sc-telemetry",
  "sc-transaction-pool-api",
- "sc-utils",
+ "sc-utils 19.0.0",
  "serde_json",
  "sp-api",
  "sp-application-crypto",
@@ -9033,7 +9168,7 @@ dependencies = [
  "sc-client-api",
  "sc-network-common",
  "sc-network-types",
- "sc-utils",
+ "sc-utils 19.0.0",
  "schnellru",
  "serde",
  "serde_json",
@@ -9118,7 +9253,7 @@ dependencies = [
  "sc-network",
  "sc-network-common",
  "sc-network-types",
- "sc-utils",
+ "sc-utils 19.0.0",
  "schnellru",
  "smallvec",
  "sp-arithmetic",
@@ -9145,7 +9280,7 @@ dependencies = [
  "sc-network-common",
  "sc-network-sync",
  "sc-network-types",
- "sc-utils",
+ "sc-utils 19.0.0",
  "sp-consensus",
  "sp-runtime",
  "substrate-prometheus-endpoint",
@@ -9193,7 +9328,7 @@ dependencies = [
  "sc-network",
  "sc-network-types",
  "sc-transaction-pool-api",
- "sc-utils",
+ "sc-utils 19.0.0",
  "sp-api",
  "sp-core",
  "sp-externalities",
@@ -9228,7 +9363,7 @@ dependencies = [
  "sc-rpc-api",
  "sc-tracing",
  "sc-transaction-pool-api",
- "sc-utils",
+ "sc-utils 19.0.0",
  "serde_json",
  "sp-api",
  "sp-blockchain",
@@ -9367,7 +9502,7 @@ dependencies = [
  "sc-tracing",
  "sc-transaction-pool",
  "sc-transaction-pool-api",
- "sc-utils",
+ "sc-utils 19.0.0",
  "schnellru",
  "serde",
  "serde_json",
@@ -9434,7 +9569,7 @@ dependencies = [
  "parking_lot 0.12.5",
  "pin-project",
  "rand 0.8.5",
- "sc-utils",
+ "sc-utils 19.0.0",
  "serde",
  "serde_json",
  "thiserror 1.0.69",
@@ -9494,7 +9629,7 @@ dependencies = [
  "parking_lot 0.12.5",
  "sc-client-api",
  "sc-transaction-pool-api",
- "sc-utils",
+ "sc-utils 19.0.0",
  "serde",
  "sp-api",
  "sp-blockchain",
@@ -9529,6 +9664,20 @@ dependencies = [
 [[package]]
 name = "sc-utils"
 version = "19.0.0"
+dependencies = [
+ "async-channel 1.9.0",
+ "futures",
+ "futures-timer",
+ "log",
+ "parking_lot 0.12.5",
+ "prometheus",
+ "sp-arithmetic",
+]
+
+[[package]]
+name = "sc-utils"
+version = "19.0.0"
+source = "git+https://github.com/paritytech/polkadot-sdk?branch=stable2506#dc937dd74221e38ce4c184be27b6cdcf36de0452"
 dependencies = [
  "async-channel 1.9.0",
  "futures",
@@ -11608,6 +11757,12 @@ version = "0.1.0"
 dependencies = [
  "clap",
  "cumulus-primitives-proof-size-hostfunction",
+ "fc-api",
+ "fc-db",
+ "fc-mapping-sync",
+ "fc-rpc",
+ "fc-rpc-core",
+ "fc-storage",
  "fp-evm",
  "fp-rpc",
  "frame-benchmarking-cli",
@@ -11615,6 +11770,7 @@ dependencies = [
  "frame-system",
  "futures",
  "jsonrpsee",
+ "pallet-ethereum",
  "pallet-transaction-payment",
  "pallet-transaction-payment-rpc",
  "sc-basic-authorship",
@@ -11625,7 +11781,9 @@ dependencies = [
  "sc-consensus-grandpa",
  "sc-executor",
  "sc-network",
+ "sc-network-sync",
  "sc-offchain",
+ "sc-rpc",
  "sc-service",
  "sc-telemetry",
  "sc-transaction-pool",

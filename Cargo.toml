@@ -38,6 +38,7 @@ sc-network = { path = "/home/minerva/polkadot-sdk/substrate/client/network" }
 sc-offchain = { path = "/home/minerva/polkadot-sdk/substrate/client/offchain" }
 sc-service = { path = "/home/minerva/polkadot-sdk/substrate/client/service" }
 sc-telemetry = { path = "/home/minerva/polkadot-sdk/substrate/client/telemetry" }
+sc-rpc = { path = "/home/minerva/polkadot-sdk/substrate/client/rpc" }
 sc-transaction-pool = { path = "/home/minerva/polkadot-sdk/substrate/client/transaction-pool" }
 sc-transaction-pool-api = { path = "/home/minerva/polkadot-sdk/substrate/client/transaction-pool/api" }
 
