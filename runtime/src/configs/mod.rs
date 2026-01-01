@@ -455,7 +455,14 @@ impl pallet_dynamic_fee::Config for Runtime {
 // ═══════════════════════════════════════════════════════════════════════════
 //
 // Post-Quantum Cryptographic Cold Storage
-// Uses CRYSTALS-Dilithium (NIST Level 3) for quantum-resistant protection
+// Uses CRYSTALS-Dilithium Level 2 (NIST PQC Standard)
+//
+// Why Level 2?
+// - NIST's recommended baseline for post-quantum security
+// - AES-128 equivalent (50+ years secure)
+// - 32% smaller keys than Level 3 = lower storage costs
+// - 26% smaller signatures = lower transaction costs
+// - Faster verification = better throughput
 //
 // Features:
 // - 10 TSRX fee to create vault (spam prevention)
@@ -470,10 +477,10 @@ parameter_types! {
 	pub const VaultCreationFee: Balance = 10 * TSRX;
 	/// Fee multiplier for vault transfers: 100x normal
 	pub const VaultTransferFeeMultiplier: u32 = 100;
-	/// Maximum public key size: Dilithium3 = 1952 bytes
-	pub const MaxPublicKeySize: u32 = 1952;
-	/// Maximum signature size: Dilithium3 = 3293 bytes
-	pub const MaxSignatureSize: u32 = 3293;
+	/// Maximum public key size: Dilithium2 = 1312 bytes
+	pub const MaxPublicKeySize: u32 = 1312;
+	/// Maximum signature size: Dilithium2 = 2420 bytes
+	pub const MaxSignatureSize: u32 = 2420;
 }
 
 impl pallet_quantum_vault::Config for Runtime {
