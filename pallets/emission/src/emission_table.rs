@@ -2,13 +2,13 @@
 // DO NOT EDIT MANUALLY
 //
 // Tesserax Protocol v2.0 - Pre-computed Sigmoid Emission Table
-// Max Supply: 13,817,580 TSRX
+// Max Supply: 13,817,422 TSRX (π × e × φ × 10^6)
 // Duration: 20 years (7300 eras)
 //
 
 /// Maximum supply of $TSRX in smallest units (planck)
-/// 13,817,580 TSRX × 10^18 = 13817580000000000000000000
-pub const MAX_SUPPLY: u128 = 13817580000000000000000000;
+/// S_max = floor(π × e × φ × 10^6) = 13,817,422 TSRX × 10^18
+pub const MAX_SUPPLY: u128 = 13_817_422_000_000_000_000_000_000;
 
 /// Total number of eras in the emission schedule
 pub const TOTAL_ERAS: usize = 7300;

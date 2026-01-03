@@ -23,7 +23,18 @@
 //
 // For more information, please refer to <http://unlicense.org>
 
+// ═══════════════════════════════════════════════════════════════════════════
+// TESSERAX PROTOCOL - RUNTIME BENCHMARKS
+// ═══════════════════════════════════════════════════════════════════════════
+//
+// This module defines which pallets should be benchmarked.
+// Run benchmarks with: cargo build --release --features runtime-benchmarks
+// Then: ./target/release/tesserax-node benchmark pallet --chain dev --pallet "*" --extrinsic "*"
+//
+// ═══════════════════════════════════════════════════════════════════════════
+
 frame_benchmarking::define_benchmarks!(
+	// ── Core Substrate Pallets ──
 	[frame_benchmarking, BaselineBench::<Runtime>]
 	[frame_system, SystemBench::<Runtime>]
 	[frame_system_extensions, SystemExtensionsBench::<Runtime>]
@@ -31,4 +42,8 @@ frame_benchmarking::define_benchmarks!(
 	[pallet_timestamp, Timestamp]
 	[pallet_sudo, Sudo]
 	[pallet_template, Template]
+	
+	// ── Tesserax Custom Pallets ──
+	[pallet_quantum_vault, QuantumVault]
+	[pallet_emission, Emission]
 );

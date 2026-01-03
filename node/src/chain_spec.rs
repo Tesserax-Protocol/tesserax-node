@@ -81,7 +81,7 @@ pub fn local_chain_spec() -> Result<ChainSpec, String> {
 /// Metadata properties exposed to wallets and block explorers.
 /// 
 /// These properties tell Polkadot.js and other clients:
-/// - tokenSymbol: $SANC
+/// - tokenSymbol: $TSRX
 /// - tokenDecimals: 18 (EVM compatible)
 /// ═══════════════════════════════════════════════════════════════════════════
 fn chain_properties() -> sc_service::Properties {

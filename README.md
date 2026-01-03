@@ -8,6 +8,8 @@
 [![Built with Substrate](https://img.shields.io/badge/Built%20with-Substrate-e6007a)](https://substrate.io/)
 [![EVM Compatible](https://img.shields.io/badge/EVM-Compatible-3C3C3D)](https://ethereum.org/)
 [![Quantum Ready](https://img.shields.io/badge/Quantum-Resistant-00D4AA)](https://csrc.nist.gov/projects/post-quantum-cryptography)
+[![Tests](https://img.shields.io/badge/Tests-51%20Passing-success)](docs/test-results.md)
+[![Testnet](https://img.shields.io/badge/Testnet-Live-brightgreen)](docs/testnet-guide.md)
 
 </div>
 
@@ -71,8 +73,14 @@ cargo test -p pallet-quantum-vault
 
 ## Documentation
 
-- **[Whitepaper v2.0](./whitepaper-v2.0.md)** - Complete technical specification, philosophy, and mathematical derivations.
-- [Blueprint](./blueprint.md) - Implementation plan and step-by-step progress.
+| Document | Description |
+|----------|-------------|
+| 📄 **[Whitepaper v2.0](docs/whitepaper-v2.0.md)** | Complete technical specification and philosophy |
+| 🗺️ **[Blueprint](docs/blueprint.md)** | Implementation plan and roadmap |
+| 🚀 **[Testnet Guide](docs/testnet-guide.md)** | How to connect and use the public testnet |
+| 📖 **[API Reference](docs/api-reference.md)** | Complete API documentation for all pallets |
+| 📊 **[Test Results](docs/test-results.md)** | Quality report and test coverage |
+| 🔐 **[Security Audit](docs/security-audit.md)** | Security architecture and audit readiness |
 
 ---
 

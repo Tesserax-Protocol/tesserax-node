@@ -9,6 +9,9 @@ mod benchmarks;
 pub mod configs;
 pub mod vault_blocker;
 
+#[cfg(test)]
+mod integration_tests;
+
 // ═══════════════════════════════════════════════════════════════════════════
 // THE TESSERAX CONSTANT - Economic DNA of the Protocol
 // ═══════════════════════════════════════════════════════════════════════════
@@ -80,7 +83,7 @@ pub mod tesserax_constants {
     // ═══════════════════════════════════════════════════════════════════════
 
     /// Genesis supply for development (10% of max supply)
-    /// 1,381,742.2 SANC × 10^18 = 1,381,742_200_000_000_000_000_000
+    /// 1,381,742.2 TSRX × 10^18 = 1,381,742_200_000_000_000_000_000
     pub const GENESIS_SUPPLY: Balance = 1_381_742_200_000_000_000_000_000;
 
     /// Endowment per development account

@@ -5,6 +5,10 @@
 //! - `destroy_vault`: Destroying a vault with signature verification  
 //! - `vault_transfer`: Transferring funds from a vault with signature verification
 
+extern crate alloc;
+use alloc::vec;
+use alloc::vec::Vec;
+
 use super::*;
 
 #[allow(unused)]

@@ -39,6 +39,19 @@ pub use pallet::*;
 mod emission_table;
 pub use emission_table::*;
 
+/// Weight implementations
+pub mod weights;
+pub use weights::*;
+
+#[cfg(test)]
+mod mock;
+
+#[cfg(test)]
+mod tests;
+
+#[cfg(feature = "runtime-benchmarks")]
+mod benchmarking;
+
 #[frame_support::pallet]
 pub mod pallet {
     use super::*;
@@ -247,30 +260,5 @@ pub mod pallet {
             
             total
         }
-    }
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-// WEIGHTS
-// ═══════════════════════════════════════════════════════════════════════════
-
-use frame_support::weights::Weight;
-
-/// Weight functions for pallet-emission
-pub trait WeightInfo {
-    fn on_initialize_with_reward() -> Weight;
-    fn on_initialize_no_reward() -> Weight;
-}
-
-/// Default weights (to be benchmarked)
-impl WeightInfo for () {
-    fn on_initialize_with_reward() -> Weight {
-        // Estimate: read era, lookup table, mint tokens, emit event
-        Weight::from_parts(15_000_000, 1024)
-    }
-
-    fn on_initialize_no_reward() -> Weight {
-        // Estimate: just check if emission ended
-        Weight::from_parts(5_000_000, 512)
     }
 }
