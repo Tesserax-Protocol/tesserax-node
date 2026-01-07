@@ -1,1 +1,20 @@
+# Build artifacts
 target/
+
+# Web application - node_modules only
+web/**/node_modules/
+web/**/.next/
+web/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

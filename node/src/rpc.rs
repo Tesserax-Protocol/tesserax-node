@@ -53,37 +53,9 @@ where
 	// ═══════════════════════════════════════════════════════════════════════════
 	// ETHEREUM RPC ENDPOINTS
 	// ═══════════════════════════════════════════════════════════════════════════
-	// Basic eth_* and net_* methods for Metamask detection
-	// Full eth_* RPC requires Frontier backend setup (Phase 2.3)
-
-	module.register_method("eth_chainId", |_, _, _| {
-		Ok::<String, jsonrpsee::types::ErrorObjectOwned>(format!("0x{:x}", CHAIN_ID))
-	})?;
-
-	module.register_method("net_version", |_, _, _| {
-		Ok::<String, jsonrpsee::types::ErrorObjectOwned>(CHAIN_ID.to_string())
-	})?;
-
-	module.register_method("web3_clientVersion", |_, _, _| {
-		Ok::<String, jsonrpsee::types::ErrorObjectOwned>("Tesserax/v0.1.0".to_string())
-	})?;
-
-	module.register_method("eth_syncing", |_, _, _| {
-		Ok::<bool, jsonrpsee::types::ErrorObjectOwned>(false)
-	})?;
-
-	module.register_method("eth_gasPrice", |_, _, _| {
-		// 1 Gwei default gas price
-		Ok::<String, jsonrpsee::types::ErrorObjectOwned>("0x3b9aca00".to_string())
-	})?;
-
-	module.register_method("net_listening", |_, _, _| {
-		Ok::<bool, jsonrpsee::types::ErrorObjectOwned>(true)
-	})?;
-
-	module.register_method("net_peerCount", |_, _, _| {
-		Ok::<String, jsonrpsee::types::ErrorObjectOwned>("0x0".to_string())
-	})?;
+	// Full eth_*, net_*, and web3_* methods are provided by Frontier via eth.rs
+	// The create_eth() function in eth.rs registers all Ethereum-compatible RPCs
+	// This file only provides basic Substrate RPCs (system, transaction_payment)
 
 	Ok(module)
 }
