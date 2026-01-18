@@ -314,7 +314,7 @@ We welcome contributions from the community!
 - 🐛 Report bugs via [GitHub Issues](https://github.com/Tesserax-Protocol/tesserax-node/issues)
 - 💡 Propose features via [GitHub Discussions](https://github.com/Tesserax-Protocol/tesserax-node/discussions)
 - 🔐 Report security issues to [security@tesserax.network](mailto:security@tesserax.network)
-- 💰 Bug bounty program: $100 - $10,000 (see [SECURITY.md](SECURITY.md))
+- 🏆 Security researchers: See our [Responsible Disclosure Program](SECURITY.md)
 
 ---
 
