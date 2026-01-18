@@ -4,7 +4,7 @@
 
 **Adaptive Scarcity & Quantum-Resistant Blockchain**
 
-[![License](https://img.shields.io/badge/license-MIT--0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Built with Substrate](https://img.shields.io/badge/Built%20with-Substrate-e6007a)](https://substrate.io/)
 [![EVM Compatible](https://img.shields.io/badge/EVM-Compatible-3C3C3D)](https://ethereum.org/)
 [![Quantum Ready](https://img.shields.io/badge/Quantum-Resistant-00D4AA)](https://csrc.nist.gov/projects/post-quantum-cryptography)
@@ -320,7 +320,7 @@ We welcome contributions from the community!
 
 ## License
 
-MIT-0
+MIT
 
 ---
 
