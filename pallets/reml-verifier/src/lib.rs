@@ -32,7 +32,7 @@ pub use pallet::*;
 #[cfg(test)]
 // TODO: Add tests.rs for unit tests
 // mod tests;
-#[cfg(feature = "runtime-benchmarks")]
+// #[cfg(feature = "runtime-benchmarks")]
 // TODO: Add benchmarking.rs for benchmarks
 // mod benchmarking;
 pub mod weights;
